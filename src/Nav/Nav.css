@@ -1,0 +1,44 @@
+/* Navbar.css */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 60px;
+  border-bottom: 1px solid #edeef2;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.logo-icon {
+  color: #2563eb;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.link-login {
+  font-size: 14px;
+  color: #4b5563;
+}
+
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+  }
+}
