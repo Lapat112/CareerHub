@@ -5,13 +5,11 @@ function Navbar() {
   return (
     <header className="navbar">
       <div className="logo">
-        <span className="logo-icon">◆</span> TalentHub
+        CreerHub
       </div>
-      deww
-      <nav className="nav-links">
-        <a href="#">Find Jobs</a>
-        <a href="#">Browse Talent</a>
-        <a href="#">Find Employers</a>
+      <nav className="nav-links">        
+        <a href="#">Search for Personnel</a>
+        <a href="#">Upload</a>
       </nav>
       <div className="nav-actions">
         <a href="#" className="link-login">Log in</a>

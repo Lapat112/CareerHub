@@ -11,7 +11,7 @@ function Homepage() {
             <p>Upload your CV and let thousands of companies discover you. Smart matching puts the right opportunities in front of you.</p>
             <div className="hero-buttons">
               <a href="#" className="btn btn-primary">Upload Your CV</a>
-              <a href="#" className="btn btn-outline">Browse Jobs</a>
+              <a href="#" className="btn btn-outline">Find Personnel</a>
             </div>
             <div className="hero-social-proof">
               <div className="avatars">
