@@ -68,13 +68,10 @@ function Upload() {
         {/* Skills & Expertise card */}
         <div className="profile-card">
           <div className="card-title">
-            <span className="icon">📍</span>
             <h2>Skills & Expertise</h2>
           </div>
-
           <label>Search & Add Skills</label>
           <div className="search-input-wrapper">
-            <span className="search-icon">🔍</span>
             <input type="text" placeholder="Type a skill (e.g. JavaScript, UI Design)" />
           </div>      
         </div>
@@ -89,16 +86,14 @@ function Upload() {
       {/* Footer */}
       <footer className="profile-footer">
         <div className="profile-footer-inner">
-          <div className="footer-logo">
-            <span>◆</span> TalentVault
-          </div>
+         <div className="flex items-center gap-2 text-sm font-bold text-gray-900">CrerrHub</div>
           <div className="footer-links">
             <a href="#">About</a>
             <a href="#">Terms</a>
             <a href="#">Privacy</a>
             <a href="#">Help Center</a>
           </div>
-          <div className="footer-copy">© 2024 TalentVault Inc.</div>
+          <div className="text-xs text-gray-400">© 2024 TalentVault Inc.</div>
         </div>
       </footer>
     </>

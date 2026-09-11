@@ -116,20 +116,12 @@
 .search-input-wrapper {
   position: relative;
   margin-bottom: 16px;
+  top:10px;
+  
 }
-
-.search-icon {
-  position: absolute;
-  left: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #9ca3af;
-  font-size: 14px;
-}
-
 .search-input-wrapper input {
   width: 100%;
-  padding: 10px 16px 10px 40px;
+  padding: 10px 16px 10px 20px;
   border-radius: 8px;
   border: 1px solid #d1d5db;
   font-size: 14px;
@@ -146,20 +138,12 @@
   gap: 8px;
 }
 
-.skill-tag {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  background: #eff6ff;
-  color: #2563eb;
-  padding: 6px 12px;
-  border-radius: 999px;
-}
 
-.skill-tag .remove {
-  cursor: pointer;
-}
+
+
+
+
+
 
 /* Actions */
 .profile-actions {
@@ -177,36 +161,23 @@
   padding: 24px 0;
 }
 
-.profile-footer-inner {
-  max-width: 120rem;
-  margin: 0 auto;
-  padding: 0 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+        .profile-footer-inner {
+        max-width: 120rem;
+        margin: 0 auto;
+        padding: 0 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        }
 
-.footer-logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 14px;
-  font-weight: 700;
-  color: #111827;
-}
+        .footer-links {
+        display: flex;
+        gap: 24px;
+        font-size: 12px;
+        }
 
-.footer-links {
-  display: flex;
-  gap: 24px;
-  font-size: 12px;
-}
+        .footer-links a {
+        color: #2563eb;
+        text-decoration: none;
+        }
 
-.footer-links a {
-  color: #2563eb;
-  text-decoration: none;
-}
-
-.footer-copy {
-  font-size: 12px;
-  color: #9ca3af;
-}
