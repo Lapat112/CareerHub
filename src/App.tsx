@@ -3,6 +3,7 @@ import './App.css'
 
 import Homepage from './PageWeb/Home/Homepage'
 import Navbar from './Nav/Nav'
+import Personnel from './PageWeb/Sear_Person/Personnel'
 
 function App() {
  
@@ -10,7 +11,8 @@ function App() {
   return (
     <>
       <Navbar/>
-      <Homepage/>
+      <Personnel/>
+      
     </>
   )
 }
