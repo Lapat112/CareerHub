@@ -1,0 +1,212 @@
+.profile-wrapper {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+.profile-header {
+  text-align: center;
+  padding: 40px 0 32px;
+}
+
+.profile-header h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.profile-header p {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* Card */
+.profile-card {
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.card-title .icon {
+  color: #2563eb;
+}
+
+.card-title h2 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* Dropzone */
+.dropzone {
+  border: 2px dashed #e5e7eb;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 16px;
+  text-align: center;
+}
+
+.dropzone-icon {
+  font-size: 30px;
+  color: #d1d5db;
+  margin-bottom: 12px;
+}
+
+.dropzone-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+.dropzone-sub {
+  font-size: 12px;
+  color: #9ca3af;
+  margin-bottom: 16px;
+}
+
+/* Form */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.form-field label {
+  display: block;
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 6px;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: #9ca3af;
+}
+
+.form-field textarea {
+  resize: vertical;
+}
+
+/* Skills search */
+.search-input-wrapper {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+.search-input-wrapper input {
+  width: 100%;
+  padding: 10px 16px 10px 40px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+}
+
+.search-input-wrapper input::placeholder {
+  color: #9ca3af;
+}
+
+/* Skill tags */
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  background: #eff6ff;
+  color: #2563eb;
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+.skill-tag .remove {
+  cursor: pointer;
+}
+
+/* Actions */
+.profile-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 60px;
+}
+
+/* Footer */
+.profile-footer {
+  width: 100%;
+  border-top: 1px solid #e5e7eb;
+  padding: 24px 0;
+}
+
+.profile-footer-inner {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+  font-size: 12px;
+}
+
+.footer-links a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.footer-copy {
+  font-size: 12px;
+  color: #9ca3af;
+}

@@ -9,12 +9,12 @@
 
 
 /* Main area: sidebar + listings */
-.jobs-main {
+.jobs-main /*ข้างหลัง*/ { 
   display: flex;
   gap: 24px;
   align-items: flex-start;
   padding: 24px 0 60px;
-  background: #f9fafb;
+
 }
 
     /* Sidebar */
