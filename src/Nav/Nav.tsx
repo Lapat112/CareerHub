@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import './Nav.css'
 
@@ -14,8 +14,8 @@ function Navbar() {
         
       </nav>
       <div className="nav-actions">
-        <Link to={"Login"}><a href="#" className="link-login">Log in</a></Link>
-       <Link to={"Register"}><a href="#" className="btn btn-primary">Sign Up</a></Link>
+        <Link to={"Login"}><a  className="link-login">Log in</a></Link>
+       <Link to={"Register"}><a  className="btn btn-primary">Sign Up</a></Link>
       </div>
     </header>
   )

@@ -1,3 +1,6 @@
+import { Link } from 'react-router-dom'
+
+
 import './Homepage.css'
 
 function Homepage() {
@@ -9,21 +12,18 @@ function Homepage() {
           <div className="hero-text">
             <h1>Showcase your CV<br />to the world's top<br />employers</h1>
             <p>Upload your CV and let thousands of companies discover you. Smart matching puts the right opportunities in front of you.</p>
+           {/* 2 button */}           
             <div className="hero-buttons">
-              <a href="#" className="btn btn-primary">Upload Your CV</a>
-              <a href="#" className="btn btn-outline">Find Personnel</a>
+             <Link to={"/Upload"}><button className="btn btn-primary">Upload Your CV</button></Link>            
+             <Link to={"/Personnel"}> <button className="btn btn-outline">Find Personnel</button></Link>
             </div>
-            <div className="hero-social-proof">
-              <div className="avatars">
-                <span className="avatar"></span>
-                <span className="avatar"></span>
-                <span className="avatar"></span>
-              </div>
               <span className="proof-text">Trusted by 10,000+ job seekers</span>
-            </div>
           </div>
+          {/* bord */}
           <div className="hero-image">
-            <div className="dashboard-mock"></div>
+            <div className="dashboard-mock">
+             {/*ใส่รูปตรงนี้ด้วย */}
+            </div>
           </div>
         </section>
       </div>
@@ -58,7 +58,8 @@ function Homepage() {
         <section className="cta">
           <h2>Ready to take the next step?</h2>
           <p>Join thousands of professionals who've found their dream job through TalentHub.</p>
-          <a href="#" className="btn btn-primary">Upload Your CV</a>
+          {/* 1 button */} 
+        <Link to={"/Upload"}><button className="btn btn-primary">Upload Your CV</button></Link> 
         </section>
       </div>
 

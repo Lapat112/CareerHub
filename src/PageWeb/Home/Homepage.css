@@ -36,6 +36,11 @@ img, .avatar {
   padding: 80px 60px;
 }
 
+    /*Png*/
+    .avatar{
+       width: 10rem; 
+    }
+
 .hero-text {
   flex: 1;
 }
