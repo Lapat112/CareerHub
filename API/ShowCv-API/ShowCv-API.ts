@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
 
 app.get("/users", async (req, res) => {
   try {
-    const result = await pool.query("SELECT * FROM SearchforPersonnel");
+    const result = await pool.query('SELECT * FROM public."SearchforPersonnel"');
 
     res.json(result.rows);
   } catch (error) {
