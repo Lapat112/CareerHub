@@ -1,6 +1,14 @@
 import express from "express";
 import cors from "cors";
+import { Pool } from "pg";
 
+export const pool = new Pool({
+  user: "postgres",
+  host: "localhost",
+  database: "postgres",
+  password: "lapat2545",
+  port: 5432,
+});
 const app = express();
 
 app.use(cors());
@@ -11,6 +19,22 @@ app.get("/", (req, res) => {
     message: "Hello World"
   });
 });
+
+app.get("/users", async (req, res) => {
+  try {
+    const result = await pool.query("SELECT * FROM SearchforPersonnel");
+
+    res.json(result.rows);
+  } catch (error) {
+    console.error(error);
+
+    res.status(500).json({
+      message: "ดึงข้อมูลไม่สำเร็จ"
+    });
+  }
+});
+
+
 
 app.listen(8000, () => {
   console.log("Server running at http://localhost:8000");
