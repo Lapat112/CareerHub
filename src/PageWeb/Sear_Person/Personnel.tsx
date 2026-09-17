@@ -4,13 +4,13 @@ import './Personnel.css'
 
 function Personnel() {
 
-  const [showname, setShowname] = useState('');
+  const [showname, setShowname] = useState(null);
 
   useEffect(() => {
     fetch('http://localhost:8000/users')
     .then((res) => res.json())
     .then((data) => {
-      setShowname(data);
+      setShowname(data[0]);
     })
   }, []);
 
@@ -64,7 +64,7 @@ function Personnel() {
             <div className="job-card">
               <div className="job-card-logo"></div>
               <div className="job-card-body">
-                <h3>{showname}</h3>
+                <h3>{showname?.Name}</h3>
                 <p className="job-meta">Compass Corp &nbsp;•&nbsp; Bangkok (Remote friendly)</p>
                 <div className="job-tags">
                   <span className="tag">Full-time</span>
