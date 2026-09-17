@@ -1,6 +1,20 @@
+import React, { useState , useEffect } from 'react';
+
 import './Personnel.css'
 
 function Personnel() {
+
+  const [showname, setShowname] = useState('');
+
+  useEffect(() => {
+    fetch('http://localhost:8000/users')
+    .then((res) => res.json())
+    .then((data) => {
+      setShowname(data);
+    })
+  }, []);
+
+
   return (
     <>
       {/* Search Header */}
@@ -50,7 +64,7 @@ function Personnel() {
             <div className="job-card">
               <div className="job-card-logo"></div>
               <div className="job-card-body">
-                <h3>Senior Product Designer</h3>
+                <h3>{showname}</h3>
                 <p className="job-meta">Compass Corp &nbsp;•&nbsp; Bangkok (Remote friendly)</p>
                 <div className="job-tags">
                   <span className="tag">Full-time</span>
@@ -58,10 +72,7 @@ function Personnel() {
                   <span className="tag">Design Systems</span>
                 </div>
               </div>
-              <div className="job-card-actions">
-                <span className="bookmark">☆</span>
-                <button className="btn btn-outline">Quick Apply</button>
-              </div>
+         
             </div>
 
             
