@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import "./ShowCv.css";
 
 function ShowCv() {
-  
+
   const { id } = useParams();
   const [showname, setShowname] = useState({});
 
@@ -41,19 +41,19 @@ function ShowCv() {
 
           <div className="info-field">
             <label>Email Address</label>
-            <p className="info-value"></p>
+            <p className="info-value">{showname?.address}</p>
           </div>
 
           <div className="info-field">
             <label>Phone Number</label>
-            <p className="info-value"></p>
+            <p className="info-value">{showname?.Phon}</p>
           </div>
 
         </div>
 
         <div className="info-field full-width">
           <label>Brief Bio</label>
-          <p className="info-value bio-text"></p>
+          <p className="info-value bio-text">{showname?.Bio}</p>
         </div>
 
       </div>
