@@ -1,16 +1,17 @@
-import React, { useState , useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import './Personnel.css'
 
 function Personnel() {
 
-  const [showname, setShowname] = useState(null);
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
     fetch('http://localhost:8000/users')
     .then((res) => res.json())
     .then((data) => {
-      setShowname(data[0]);
+      setItems(data);
     })
   }, []);
 
@@ -19,13 +20,7 @@ function Personnel() {
     <>
       {/* Search Header */}
 <div className="jobs-header-wrapper">
-  <section className="pt-10 pb-6">
-    <form className="flex gap-3">
-      <input type="text" placeholder="Job title or keywords" className="flex-1 px-4 py-3 rounded-lg border border-gray-300 text-sm"/>
-      <input type="text" placeholder="Location (e.g. Bangkok)" className="flex-1 px-4 py-3 rounded-lg border border-gray-300 text-sm" />
-      <button type="submit"className="px-6 py-3 rounded-lg border-none bg-blue-600 text-white font-semibold cursor-pointer whitespace-nowrap"> Search Jobs</button>
-      </form>
-  </section>
+  
       </div>
 
       {/* Main content: filters + listings */}
@@ -61,23 +56,22 @@ function Personnel() {
 
           {/* User  */}
           <div className="jobs-list">
-            <div className="job-card">
-              <div className="job-card-logo"></div>
-              <div className="job-card-body">
-                <h3>{showname?.Name}</h3>
-                <p className="job-meta">Compass Corp &nbsp;•&nbsp; Bangkok (Remote friendly)</p>
-                <div className="job-tags">
-                  <span className="tag">Full-time</span>
-                  <span className="tag">$120k - $150k</span>
-                  <span className="tag">Design Systems</span>
+            {items.map((item, index) => (
+              <div className="job-card" key={index}>
+                <div className="job-card-logo"></div>
+                <div className="job-card-body">
+                  <Link to={`/ShowCv/${item.id}`}><h3>{item?.Name}</h3></Link>
+
+                  <p className="job-meta">Compass Corp &nbsp;•&nbsp; Bangkok (Remote friendly)</p>
+                  <div className="job-tags">
+                    <span className="tag">Full-time</span>
+                    <span className="tag">$120k - $150k</span>
+                    <span className="tag">Design Systems</span>
+                  </div>
                 </div>
+           
               </div>
-         
-            </div>
-
-            
-
-            
+            ))}
           </div>
         </section>
       </div>

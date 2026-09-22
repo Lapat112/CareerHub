@@ -70,7 +70,7 @@
 /* User */
 .jobs-list {
   flex: 1;
-  background-color: #2563eb;
+  background-color: #f3f3f35d;
 }
 
 
@@ -139,6 +139,8 @@
     cursor: pointer;
   }
 
+
+  
 /* Responsive */
 @media (max-width: 900px) {
   .jobs-main {
