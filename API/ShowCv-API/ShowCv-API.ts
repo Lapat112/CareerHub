@@ -50,6 +50,27 @@ app.get("/ShowCv/User", async (req, res) => {
 
 
 
+
+
+/* Post API */
+app.post("/Upload", async (req, res) => {
+  const { FullName, Profes, Email, address, Phon, Bio } = req.body;
+
+  try {
+    const result = await pool.query(
+      'INSERT INTO public."CV" (FullName, Profes, Email, address, Phon, Bio) VALUES ($1, $2, $3, $4, $5, $6)',
+      [FullName, Profes, Email, address, Phon, Bio]
+    );
+    res.json({
+      message: "เพิ่มข้อมูลสำเร็จ"
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "เพิ่มข้อมูลไม่สำเร็จ"
+    });
+  }
+});
+
 app.listen(8000, () => {
   console.log("Server running at http://localhost:8000");
 });
