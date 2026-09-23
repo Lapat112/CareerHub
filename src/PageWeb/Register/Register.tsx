@@ -34,12 +34,7 @@ function Register() {
             </div>
           </div>
 
-          <div className="form-field">
-            <label>Date of birth</label>
-            <div className="input-with-icon">
-              <input type="date" />
-            </div>
-          </div>
+          
 
           <div className="form-field">
             <label>Password</label>

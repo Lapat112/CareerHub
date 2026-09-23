@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import './Personnel.css'
+import './History.css'
 
-function Personnel() {
+function History() {
 
   const [items, setItems] = useState([]);
 
@@ -81,4 +81,4 @@ function Personnel() {
   )
 }
 
-export default Personnel
+export default History
