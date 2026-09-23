@@ -10,6 +10,9 @@ import Upload from './PageWeb/Upload/Upload.tsx'
 import Login from './PageWeb/Login/Login.tsx'
 import Register from './PageWeb/Register/Register.tsx'
 import ShowCv from './PageWeb/Sear_Person/ShowCv/ShowCv.tsx'
+import History from './PageWeb/User/History/History.tsx'
+import UserProfile from './PageWeb/User/UserProfile.tsx'
+
 
 
 const router = createBrowserRouter([
@@ -22,8 +25,8 @@ const router = createBrowserRouter([
       
       {path:'Login',element:<Login/>},
       {path:'Register',element:<Register/>},
-      {path:'ShowCv/:id', element:<ShowCv/>}
-    
+      {path:'ShowCv/:id', element:<ShowCv/>},
+      {path:'UserProfile/History', element:<History/>}
 
 
      

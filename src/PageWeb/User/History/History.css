@@ -1,0 +1,155 @@
+/* Wrappers keep content boxed, same pattern as Homepage */
+.jobs-header-wrapper,
+.jobs-main-wrapper {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+
+
+/* Main area: sidebar + listings */
+.jobs-main /*ข้างหลัง*/ { 
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  padding: 24px 0 60px;
+
+}
+
+    /* Sidebar */
+    .jobs-sidebar {
+      width: 260px;
+      flex-shrink: 0;
+      background: #fff;
+      border-radius: 12px;
+      border: 1px solid #edeef2;
+      padding: 20px;
+    }
+
+    .filter-group {
+      margin-bottom: 24px;
+    }
+
+    .filter-group h4 {
+      font-size: 12px;
+      color: #6b7280;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+
+    .filter-group label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      margin-bottom: 10px;
+      color: #1a1a2e;
+    }
+
+    .filter-group label span {
+      margin-left: auto;
+      color: #9ca3af;
+      font-size: 12px;
+    }
+
+    .salary-slider {
+      width: 100%;
+      margin: 8px 0;
+    }
+
+    .salary-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #6b7280;
+    }
+
+
+
+/* User */
+.jobs-list {
+  flex: 1;
+  background-color: #f3f3f35d;
+}
+
+
+  .job-card {
+    display: flex;
+    gap: 16px;
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #edeef2;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+
+  .job-card-logo {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    background: #e5e7eb;
+    flex-shrink: 0;
+  }
+
+  .job-card-body {
+    flex: 1;
+  }
+
+  .job-card-body h3 {
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+
+  .job-meta {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 12px;
+  }
+
+  .job-tags {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+
+  .job-tags .tag {
+    font-size: 12px;
+    background: #eff6ff;
+    color: #2563eb;
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+
+  .job-footer-meta {
+    font-size: 12px;
+    color: #9ca3af;
+  }
+
+  .job-card-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .bookmark {
+    color: #9ca3af;
+    cursor: pointer;
+  }
+
+
+  
+/* Responsive */
+@media (max-width: 900px) {
+  .jobs-main {
+    flex-direction: column;
+  }
+  .jobs-sidebar {
+    width: 100%;
+  }
+  .jobs-search-form {
+    flex-direction: column;
+  }
+}
