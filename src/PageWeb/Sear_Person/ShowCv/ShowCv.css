@@ -63,15 +63,13 @@
   min-height: 50px;
 }
 
-/* Brief Bio */
-
+/* Brief Bio*/
 .bio-text {
   white-space: pre-wrap;
   line-height: 1.5;
   min-height: 18rem;
-  overflow-wrap: anywhere;
-  word-break: break-word;
 }
+
 
 .skills-list {
   display: flex;
@@ -88,10 +86,10 @@
   font-weight: 500;
 }
 
-.Cv-back {
-  width: 750px;
-  height: 60rem;
-  background-color: #eef2ff;
+.Cv-back{
+    width: 750px;
+    height: 60rem;
+    background-color: #eef2ff;
 }
 
 
