@@ -53,9 +53,7 @@ function Register() {
           <button className="btn-login">Sign Up</button>
         </div>
 
-        <p className="signup-text">
-          Already have an account? <a href="#">Log in</a>
-        </p>
+        
       </div>
     </div>
   )

@@ -42,14 +42,7 @@ function Personnel() {
               <label><input type="checkbox" /> Director/VP</label>
             </div>
 
-            <div className="filter-group">
-              <h4>SALARY RANGE</h4>
-              <input type="range" min="0" max="100" className="salary-slider" />
-              <div className="salary-labels">
-                <span>$20k</span>
-                <span>$100k+</span>
-              </div>
-            </div>
+        
 
            
           </aside>

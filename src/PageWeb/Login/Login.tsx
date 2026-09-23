@@ -48,9 +48,7 @@ function Login() {
           </div>
         </div>
 
-        <p className="signup-text">
-          Don't have an account? <a href="#">Sign up for free</a>
-        </p>
+      
       </div>
     </div>
   )
