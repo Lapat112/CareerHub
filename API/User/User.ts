@@ -79,6 +79,7 @@ app.post("/login", async (req: Request, res: Response) => {
         const result = await pool.query(sql, [email]);
         const row = result.rows[0];
 
+
         if (!row) {
             return res.json({
                 message: "Name or Password incorrect"
@@ -87,7 +88,7 @@ app.post("/login", async (req: Request, res: Response) => {
 
         const isMatch = await bcrypt.compare(password, row.Password);
 
-        if (isMatch) {
+           if (isMatch) {
             res.json({
                 message: "Login Success"
             });
@@ -96,7 +97,9 @@ app.post("/login", async (req: Request, res: Response) => {
                 message: "Name or Password incorrect"
             });
         }
+     
     } catch (err: any) {
+        console.error("Login error:", err);
         res.status(500).json({
             message: err.message
         });
