@@ -69,36 +69,21 @@ function Navbar() {
           <button className="cursor-pointer">Home</button>
         </Link>
 
-        <Link to="/Personnel">
-          <button className="cursor-pointer">
-            Search for Personnel
-          </button>
-        </Link>
+        <Link to="/Personnel"><button className="cursor-pointer"> Search for Personnel</button> </Link>
 
-        <Link to="/Upload">
-          <button className="cursor-pointer">Upload</button>
-        </Link>
+        <Link to="/Upload"><button className="cursor-pointer">Upload</button> </Link>
       </nav>
 
       <div className="nav-actions">
         {!userFirstName ? (
           <>
-            <Link to="/Login" className="link-login">
-              Log in
-            </Link>
+            <Link to="/Login" className="link-login">Log in</Link>
 
-            <Link to="/Register" className="btn btn-primary">
-              Sign Up
-            </Link>
+            <Link to="/Register" className="btn btn-primary">Sign Up</Link>
           </>
         ) : (
           <div ref={userMenuRef} className="relative">
-            <button
-              className="btn btn-primary cursor-pointer"
-              onClick={() => setShowLogout(!showLogout)}
-            >
-              {userFirstName}
-            </button>
+            <button className="btn btn-primary cursor-pointer" onClick={() => setShowLogout(!showLogout)} >{userFirstName} </button>
 
             {showLogout && (
               <div className="absolute right-0 top-full mt-2 w-[120px] bg-white rounded-lg shadow-lg border border-gray-200 p-2 z-50">
