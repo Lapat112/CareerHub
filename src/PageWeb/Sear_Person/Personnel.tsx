@@ -53,7 +53,7 @@ function Personnel() {
               <div className="job-card" key={index}>
                 <div className="job-card-logo"></div>
                 <div className="job-card-body">
-                  <Link to={`/ShowCv/${item.id}`}><h3>{item?.Name}</h3></Link>
+                  <Link to={`/Personnel/ShowCv/${item.Id}`}><h3>{item?.Name}</h3></Link>
 
                   <p className="job-meta">Compass Corp &nbsp;•&nbsp; Bangkok (Remote friendly)</p>
                   <div className="job-tags">

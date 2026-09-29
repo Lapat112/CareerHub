@@ -27,52 +27,34 @@ function History() {
       <div className="jobs-main-wrapper">
         <section className="jobs-main">
           {/* Sidebar filters */}
-          <aside className="jobs-sidebar">
-            <div className="filter-group">
-              <h4>JOB TYPE</h4>
-              <label><input type="checkbox" defaultChecked /> Full-time <span>128</span></label>
-              <label><input type="checkbox" /> Contract <span>42</span></label>
-              <label><input type="checkbox" /> Freelance <span>15</span></label>
-            </div>
-
-            <div className="filter-group">
-              <h4>EXPERIENCE LEVEL</h4>
-              <label><input type="checkbox" /> Entry Level</label>
-              <label><input type="checkbox" defaultChecked /> Mid-Senior</label>
-              <label><input type="checkbox" /> Director/VP</label>
-            </div>
-
-            <div className="filter-group">
-              <h4>SALARY RANGE</h4>
-              <input type="range" min="0" max="100" className="salary-slider" />
-              <div className="salary-labels">
-                <span>$20k</span>
-                <span>$100k+</span>
-              </div>
-            </div>
-
-           
-          </aside>
+     
 
           {/* User  */}
-          <div className="jobs-list">
-            {items.map((item, index) => (
-              <div className="job-card" key={index}>
-                <div className="job-card-logo"></div>
-                <div className="job-card-body">
-                  <Link to={`/ShowCv/${item.id}`}><h3>{item?.Name}</h3></Link>
+        <div className="jobs-list">
+  {items.map((item, index) => (
+    <div className="job-card" key={index}>
+      <div className="job-card-logo"></div>
 
-                  <p className="job-meta">Compass Corp &nbsp;•&nbsp; Bangkok (Remote friendly)</p>
-                  <div className="job-tags">
-                    <span className="tag">Full-time</span>
-                    <span className="tag">$120k - $150k</span>
-                    <span className="tag">Design Systems</span>
-                  </div>
-                </div>
-           
-              </div>
-            ))}
-          </div>
+      <div className="job-card-body">
+        <Link to={`/Personnel/ShowCv/${item.Id}`}><h3>{item?.Name}</h3></Link>
+
+        <p className="job-meta">Compass Corp &nbsp;•&nbsp; Bangkok (Remote friendly)</p>
+
+        <div className="job-tags">
+          <span className="tag">Full-time</span>
+          <span className="tag">$120k - $150k</span>
+          <span className="tag">Design Systems</span>
+        </div>
+      </div>
+
+      {/* ปุ่มด้านขวาสุด */}
+      <div className="flex gap-2 ml-auto">
+        <button className="px-4 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-600 cursor-pointer"  > Edit</button>
+        <button className="px-4 py-2 rounded-md bg-red-500 text-white hover:bg-red-600 cursor-pointer" > Delete</button>
+      </div>
+    </div>
+  ))}
+</div>
         </section>
       </div>
 

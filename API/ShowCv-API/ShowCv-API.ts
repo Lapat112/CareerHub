@@ -36,7 +36,7 @@ app.get("/users", async (req, res) => {
 
 app.get("/ShowCv/User", async (req, res) => {
   try {
-    const result = await pool.query('SELECT * FROM public."SearchforPersonnel" JOIN public."CV" ON "SearchforPersonnel"."Cvlink_id" = "CV"."Id";');
+    const result = await pool.query('SELECT * FROM public."SearchforPersonnel"JOIN public."CV" ON "SearchforPersonnel"."Cvlink" = "CV"."Id";');
 
     res.json(result.rows);
   } catch (error) {

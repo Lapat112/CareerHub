@@ -70,45 +70,43 @@ app.post("/register", async (req: Request<{}, {}, RegisterBody>, res: Response) 
 
 /* login zone */
 app.post("/login", async (req: Request, res: Response) => {
-    const email = req.body.email;
-    const password = req.body.password;
+  const email = req.body.email;
+  const password = req.body.password;
 
-    const sql = `SELECT * FROM public."User" WHERE "Emailaddress" = $1`;
+  const sql = `SELECT * FROM public."User" WHERE "Emailaddress" = $1`;
 
-    try {
-        const result = await pool.query(sql, [email]);
-        const row = result.rows[0];
+  try {
+    const result = await pool.query(sql, [email]);
+    const row = result.rows[0];
 
-
-        if (!row) {
-            return res.json({
-                message: "Name or Password incorrect"
-            });
-        }
-
-        const isMatch = await bcrypt.compare(password, row.Password);
-
-           if (isMatch) {
-            res.json({
-                message: "Login Success"
-            });
-        } else {
-            res.json({
-                message: "Name or Password incorrect"
-            });
-        }
-     
-    } catch (err: any) {
-        console.error("Login error:", err);
-        res.status(500).json({
-            message: err.message
-        });
+    if (!row) {
+      return res.json({
+        message: "Name or Password incorrect",
+      });
     }
-});
 
+    const isMatch = await bcrypt.compare(password, row.Password);
+
+    if (isMatch) {
+      res.json({
+        message: "Login Success",
+        firstName: row.Firstname, // <-- เพิ่มบรรทัดนี้
+      });
+    } else {
+      res.json({
+        message: "Name or Password incorrect",
+      });
+    }
+  } catch (err: any) {
+    console.error("Login error:", err);
+    res.status(500).json({
+      message: err.message,
+    });
+  }
+});
 /* END login zone */
 
 
-app.listen(8000, () => {
-  console.log("Server running at http://localhost:8000");
+app.listen(7000, () => {
+  console.log("Server running at http://localhost:7000");
 });
