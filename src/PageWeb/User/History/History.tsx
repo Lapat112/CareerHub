@@ -8,7 +8,24 @@ function History() {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:8000/users')
+
+    const userId = localStorage.getItem("Idonttallyou");
+
+    if (userId) {
+      console.log("i get id", userId)  
+    }else {
+      console.log("don't get id");
+      return;
+    }
+
+
+
+
+
+
+
+
+    fetch(`http://localhost:8000/History/users?Id=${userId}`)
     .then((res) => res.json())
     .then((data) => {
       setItems(data);
@@ -16,35 +33,30 @@ function History() {
   }, []);
 
 
-  return (
-    <>
-      {/* Search Header */}
-<div className="jobs-header-wrapper">
-  
-      </div>
 
-      {/* Main content: filters + listings */}
+  return (
+    <>     
+      <div className="jobs-header-wrapper">
+      </div>  
       <div className="jobs-main-wrapper">
         <section className="jobs-main">
-          {/* Sidebar filters */}
-     
-
+        
           {/* User  */}
-        <div className="jobs-list">
-  {items.map((item, index) => (
-    <div className="job-card" key={index}>
-      <div className="job-card-logo"></div>
+      <div className="jobs-list">
+      {items.map((item, index) => (
+        <div className="job-card" key={index}>
+          <div className="job-card-logo"></div>
 
-      <div className="job-card-body">
-        <Link to={`/Personnel/ShowCv/${item.Id}`}><h3>{item?.Name}</h3></Link>
+          <div className="job-card-body">
+            <Link to={`/Personnel/ShowCv/${item.Id}`}><h3>{item?.Name}</h3></Link>
 
-        <p className="job-meta">Compass Corp &nbsp;•&nbsp; Bangkok (Remote friendly)</p>
+          <p className="job-meta">Compass Corp &nbsp;•&nbsp; Bangkok (Remote friendly)</p>
 
-        <div className="job-tags">
-          <span className="tag">Full-time</span>
-          <span className="tag">$120k - $150k</span>
-          <span className="tag">Design Systems</span>
-        </div>
+          <div className="job-tags">
+            <span className="tag">Full-time</span>
+            <span className="tag">$120k - $150k</span>
+            <span className="tag">Design Systems</span>
+          </div>
       </div>
 
       {/* ปุ่มด้านขวาสุด */}

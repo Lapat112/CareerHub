@@ -71,6 +71,34 @@ app.post("/Upload", async (req, res) => {
   }
 });
 
+
+
+app.get("/History/users", async (req, res) => {
+  try {
+    const userId = req.query.Id;
+
+    if (userId){
+      console.log("get Id")
+    }else{
+      return res.status(400).json({
+        messge: "Dont get id"
+      });
+    }
+
+    const result = await pool.query( `SELECT *FROM public."SearchforPersonnel" WHERE "Usercreate" = $1`,
+      [userId]
+    );
+
+    res.json(result.rows);
+  } catch (error) {
+    console.error(error);
+
+    res.status(500).json({
+      message: "ดึงข้อมูลไม่สำเร็จ"
+    });
+  }
+});
+
 app.listen(8000, () => {
   console.log("Server running at http://localhost:8000");
 });

@@ -90,7 +90,8 @@ app.post("/login", async (req: Request, res: Response) => {
     if (isMatch) {
       res.json({
         message: "Login Success",
-        firstName: row.Firstname, // <-- เพิ่มบรรทัดนี้
+        firstName: row.Firstname,
+        Idonttallyou: row.Id  
       });
     } else {
       res.json({

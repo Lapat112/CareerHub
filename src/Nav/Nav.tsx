@@ -54,7 +54,7 @@ function Navbar() {
 
   // Logout
   const handleLogout = () => {
-    localStorage.removeItem("firstName");
+    localStorage.clear();
     window.dispatchEvent(new Event("auth-change"));
     setShowLogout(false);
     navigate("/Homepage");

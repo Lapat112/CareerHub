@@ -30,6 +30,7 @@ function Login() {
       if (data.message === "Login Success") {
         // บันทึกชื่อผู้ใช้ไว้ให้ Navbar นำไปแสดง
         localStorage.setItem("firstName", data.firstName);
+        localStorage.setItem("Idonttallyou",data.Idonttallyou)
         // แจ้ง Navbar ให้อัปเดตทันที
         window.dispatchEvent(new Event("auth-change"));
         homepage("/Homepage");
@@ -57,12 +58,7 @@ function Login() {
           <div className="form-field">
             <label>Email address</label>
             <div className="input-with-icon">
-              <input
-                type="email"
-                placeholder="Email"
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
-              />
+              <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} value={email} />
             </div>
           </div>
 
