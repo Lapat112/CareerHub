@@ -21,12 +21,13 @@ const router = createBrowserRouter([
       {path:'Homepage',element:<Homepage/>},
       {path:'Personnel',element:<Personnel/>},
       {path:'Upload',element:<Upload/>},
-
+      {path:'Personnel/ShowCv/:id', element:<ShowCv/>},
+      {path:'History', element:<History />},
+     
       
       {path:'Login',element:<Login/>},
-      {path:'Register',element:<Register/>},
-      {path:'ShowCv/:id', element:<ShowCv/>},
-      {path:'UserProfile/History', element:<History/>}
+      {path:'Register',element:<Register/>}
+     
 
 
      

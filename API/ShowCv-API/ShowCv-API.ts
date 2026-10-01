@@ -36,7 +36,7 @@ app.get("/users", async (req, res) => {
 
 app.get("/ShowCv/User", async (req, res) => {
   try {
-    const result = await pool.query('SELECT * FROM public."SearchforPersonnel" JOIN public."CV" ON "SearchforPersonnel"."Cvlink_id" = "CV"."Id";');
+    const result = await pool.query('SELECT * FROM public."SearchforPersonnel"JOIN public."CV" ON "SearchforPersonnel"."Cvlink" = "CV"."Id";');
 
     res.json(result.rows);
   } catch (error) {
@@ -67,6 +67,34 @@ app.post("/Upload", async (req, res) => {
   } catch (error) {
     res.status(500).json({
       message: "เพิ่มข้อมูลไม่สำเร็จ"
+    });
+  }
+});
+
+
+
+app.get("/History/users", async (req, res) => {
+  try {
+    const userId = req.query.Id;
+
+    if (userId){
+      console.log("get Id")
+    }else{
+      return res.status(400).json({
+        messge: "Dont get id"
+      });
+    }
+
+    const result = await pool.query( `SELECT *FROM public."SearchforPersonnel" WHERE "Usercreate" = $1`,
+      [userId]
+    );
+
+    res.json(result.rows);
+  } catch (error) {
+    console.error(error);
+
+    res.status(500).json({
+      message: "ดึงข้อมูลไม่สำเร็จ"
     });
   }
 });

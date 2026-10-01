@@ -11,7 +11,7 @@ function ShowCv() {
     fetch("http://localhost:8000/ShowCv/User")
       .then((res) => res.json())
       .then((data) => {
-        const user = data.find((item) => item.id === Number(id));
+        const user = data.find((item) => item.Id === Number(id));
         setShowname(user);
       });
   }, [id]);
@@ -36,7 +36,7 @@ function ShowCv() {
 
           <div className="info-field">
             <label>Professional Title</label>
-            <p className="info-value">{showname?.ProFes}</p>
+            <p className="info-value">{showname?.Profes}</p>
           </div>
 
           <div className="info-field">

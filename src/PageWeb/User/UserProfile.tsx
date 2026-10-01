@@ -38,7 +38,7 @@ function UserProfile() {
             </div>
           </div>
 
-          <Link to = {'UserProfile/History'}><button className="btn-history">ไปหน้า History</button></Link>
+          
         </div>
       </div>
     </div>
