@@ -1,7 +1,9 @@
 .profile-wrapper {
-  max-width: 42rem;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 80rem;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 32px;
 }
 
 /* Header */
@@ -20,6 +22,20 @@
 .profile-header p {
   font-size: 14px;
   color: #6b7280;
+}
+
+/* Section (Head / CV) */
+.profile-section {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  padding-bottom: 10px;
+  margin-bottom: 16px;
+  border-bottom: 2px solid #2563eb;
 }
 
 /* Card */
@@ -46,6 +62,64 @@
   font-size: 16px;
   font-weight: 600;
   color: #111827;
+}
+
+/* Job card */
+.job-card {
+  display: flex;
+  align-items: stretch;
+  gap: 32px;
+}
+
+.job-card .job-card-logo {
+  box-sizing: border-box;
+  flex: 0 0 420px;
+  width: 420px;
+  min-width: 420px;
+  height: auto;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: 2px dashed #d1d5db;
+  border-radius: 12px;
+  background: #f3f4f6;
+}
+
+.logo-placeholder {
+  font-size: 56px;
+  color: #9ca3af;
+}
+
+.import-btn {
+  white-space: nowrap;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.import-btn:hover {
+  background: #1d4ed8;
+}
+
+.job-card-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.job-card-body .form-row {
+  margin-bottom: 0;
 }
 
 /* Dropzone */
@@ -87,20 +161,35 @@
   margin-bottom: 16px;
 }
 
+.form-row-3 {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.form-field {
+  min-width: 0;
+}
+
 .form-field label {
   display: block;
   font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
   color: #6b7280;
   margin-bottom: 6px;
 }
 
 .form-field input,
 .form-field textarea {
+  box-sizing: border-box;
   width: 100%;
   padding: 10px 16px;
   border-radius: 8px;
   border: 1px solid #d1d5db;
   font-size: 14px;
+}
+
+.form-field input {
+  height: 40px;
 }
 
 .form-field input::placeholder,
@@ -111,39 +200,6 @@
 .form-field textarea {
   resize: vertical;
 }
-
-/* Skills search */
-.search-input-wrapper {
-  position: relative;
-  margin-bottom: 16px;
-  top:10px;
-  
-}
-.search-input-wrapper input {
-  width: 100%;
-  padding: 10px 16px 10px 20px;
-  border-radius: 8px;
-  border: 1px solid #d1d5db;
-  font-size: 14px;
-}
-
-.search-input-wrapper input::placeholder {
-  color: #9ca3af;
-}
-
-/* Skill tags */
-.skill-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-
-
-
-
-
-
 
 /* Actions */
 .profile-actions {
@@ -161,23 +217,45 @@
   padding: 24px 0;
 }
 
-        .profile-footer-inner {
-        max-width: 120rem;
-        margin: 0 auto;
-        padding: 0 40px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        }
+.profile-footer-inner {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-        .footer-links {
-        display: flex;
-        gap: 24px;
-        font-size: 12px;
-        }
+.footer-links {
+  display: flex;
+  gap: 24px;
+  font-size: 12px;
+}
 
-        .footer-links a {
-        color: #2563eb;
-        text-decoration: none;
-        }
+.footer-links a {
+  color: #2563eb;
+  text-decoration: none;
+}
 
+/* Mobile */
+@media (max-width: 640px) {
+  .profile-wrapper {
+    padding: 0 16px;
+  }
+
+  .job-card {
+    flex-direction: column;
+  }
+
+  .job-card .job-card-logo {
+    flex: 0 0 auto;
+    width: 100%;
+    min-width: 0;
+    min-height: 200px;
+  }
+
+  .form-row,
+  .form-row-3 {
+    grid-template-columns: 1fr;
+  }
+}
