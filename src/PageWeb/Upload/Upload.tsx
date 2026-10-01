@@ -74,10 +74,7 @@ function Upload() {
               </div>
 
               <div className="form-row">
-                <div className="form-field">
-                  <label>Company</label>
-                  <input type="text" placeholder="e.g. Compass Corp" value={company} onChange={(e) => setCompany(e.target.value)}/>
-                </div>
+                
                 <div className="form-field">
                   <label>Location</label>
                   <input type="text" placeholder="e.g. Bangkok (Remote friendly)" value={jobLocation} onChange={(e) => setJobLocation(e.target.value)}/>
@@ -104,7 +101,7 @@ function Upload() {
 
         {/* ================= ส่วนที่ 2: CV ================= */}
         <section className="profile-section">
-          <h2 className="section-title">details Cv</h2>
+          <h2 className="section-title">Details Cv</h2>
 
           {/* Upload CV card */}
           <div className="profile-card">

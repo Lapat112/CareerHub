@@ -6,6 +6,12 @@
   padding: 0 32px;
 }
 
+.profile-wrapper *,
+.profile-wrapper *::before,
+.profile-wrapper *::after {
+  box-sizing: border-box;
+}
+
 /* Header */
 .profile-header {
   text-align: center;
@@ -27,6 +33,10 @@
 /* Section (Head / CV) */
 .profile-section {
   margin-bottom: 40px;
+}
+
+.profile-section > .profile-card:last-child {
+  margin-bottom: 0;
 }
 
 .section-title {
@@ -72,7 +82,6 @@
 }
 
 .job-card .job-card-logo {
-  box-sizing: border-box;
   flex: 0 0 420px;
   width: 420px;
   min-width: 420px;
@@ -120,6 +129,11 @@
 
 .job-card-body .form-row {
   margin-bottom: 0;
+}
+
+/* แถวที่มีช่องเดียว (Location) ให้เต็มความกว้าง */
+.job-card-body > .form-row:not(.form-row-3) {
+  grid-template-columns: 1fr;
 }
 
 /* Dropzone */
@@ -180,16 +194,25 @@
 
 .form-field input,
 .form-field textarea {
-  box-sizing: border-box;
   width: 100%;
   padding: 10px 16px;
   border-radius: 8px;
   border: 1px solid #d1d5db;
+  font-family: inherit;
   font-size: 14px;
+  color: #111827;
+  background: #fff;
 }
 
 .form-field input {
   height: 40px;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
 .form-field input::placeholder,
@@ -237,12 +260,8 @@
   text-decoration: none;
 }
 
-/* Mobile */
-@media (max-width: 640px) {
-  .profile-wrapper {
-    padding: 0 16px;
-  }
-
+/* Tablet: กล่องรูปย้ายขึ้นข้างบน */
+@media (max-width: 900px) {
   .job-card {
     flex-direction: column;
   }
@@ -251,11 +270,24 @@
     flex: 0 0 auto;
     width: 100%;
     min-width: 0;
-    min-height: 200px;
+    min-height: 220px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .profile-wrapper {
+    padding: 0 16px;
   }
 
   .form-row,
   .form-row-3 {
     grid-template-columns: 1fr;
+  }
+
+  .profile-footer-inner {
+    padding: 0 16px;
+    flex-direction: column;
+    gap: 12px;
   }
 }
