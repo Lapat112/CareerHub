@@ -193,7 +193,8 @@
 }
 
 .form-field input,
-.form-field textarea {
+.form-field textarea,
+.form-field select {
   width: 100%;
   padding: 10px 16px;
   border-radius: 8px;
@@ -201,15 +202,40 @@
   font-family: inherit;
   font-size: 14px;
   color: #111827;
-  background: #fff;
+  background-color: #fff;
 }
 
-.form-field input {
+.form-field input,
+.form-field select {
   height: 40px;
 }
 
+/* Select: ซ่อนลูกศรเดิม แล้วใส่ลูกศรของเราเอง */
+.form-field select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  padding-right: 40px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px;
+}
+
+/* สีเทาตอนยังไม่ได้เลือก (placeholder option) */
+.form-field select:invalid,
+.form-field select:has(option[value=""]:checked) {
+  color: #9ca3af;
+}
+
+.form-field select option {
+  color: #111827;
+}
+
 .form-field input:focus,
-.form-field textarea:focus {
+.form-field textarea:focus,
+.form-field select:focus {
   outline: none;
   border-color: #2563eb;
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);

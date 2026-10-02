@@ -45,6 +45,11 @@ function Upload() {
     }
   }
 
+
+
+/* Arry for JobTypes */
+  const JOB_TYPES = ["Full-time", "Freelance", "Employment Agreement"];
+
   return (
     <>
       <div className="profile-wrapper">
@@ -82,10 +87,22 @@ function Upload() {
               </div>
 
               <div className="form-row form-row-3">
+              
+
+
                 <div className="form-field">
-                  <label>Job Type</label>
-                  <input type="text" placeholder="Full-time" value={jobType} onChange={(e) => setJobType(e.target.value)}/>
-                </div>
+                <label>Job Type</label>
+                <select value={jobType} onChange={(e) => setJobType(e.target.value)}>
+                  <option value="" disabled>เลือกประเภทงาน</option>
+                  {JOB_TYPES.map((type) => (
+                    <option key={type} value={type}>{type}</option>
+                  ))}
+                </select>
+              </div>
+
+
+
+
                 <div className="form-field">
                   <label>Salary</label>
                   <input type="text" placeholder="$120k - $150k" value={salary} onChange={(e) => setSalary(e.target.value)}/>
