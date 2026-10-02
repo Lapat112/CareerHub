@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState ,useEffect} from 'react'
 import './Upload.css'
 
 function Upload() {
@@ -8,7 +8,7 @@ function Upload() {
   const [profes, setProfes] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [cv, setCv] = useState("");
+  const [cv, setCv] = useState("");/* PNG */
   const [bio, setBio] = useState("");
 
   // --- ข้อมูลของ Head ---
@@ -19,33 +19,64 @@ function Upload() {
   const [salary, setSalary] = useState("");
   const [jobSkill, setJobSkill] = useState("");
 
- function UploadData() {
-    try {
-      fetch("http://localhost:8000/API/Upload", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          fullName,
-          profes,
-          email,
-          phone,
-          cv,
-          bio,
-        }),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-          alert("Profile submitted successfully!");
-        });
-    } catch (error) {
-      console.error(error);
+
+  function UploadData() {
+    try {      
+    const userId = localStorage.getItem("Idonttallyou");
+    
+    if (userId) {
+      console.log("i get id", userId)  
+    }else {
+      console.log("don't get id");
+      return;
     }
+
+  /* Head */    
+    fetch("http://localhost:8000/users/posthead", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        jobName,
+        company,
+        jobLocation,
+        jobType,
+        salary,
+        jobSkill,
+        userId,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  } catch (error) {
+    console.error(error);
   }
 
 
+  /* CV */
+    fetch("http://localhost:8000/API/Upload", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        fullName,
+        profes,
+        email,
+        phone,
+        bio,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        alert("Profile submitted successfully!");
+      });
+
+}
 
 /* Arry for JobTypes */
   const JOB_TYPES = ["Full-time", "Freelance", "Employment Agreement"];
@@ -87,9 +118,6 @@ function Upload() {
               </div>
 
               <div className="form-row form-row-3">
-              
-
-
                 <div className="form-field">
                 <label>Job Type</label>
                 <select value={jobType} onChange={(e) => setJobType(e.target.value)}>
@@ -99,9 +127,6 @@ function Upload() {
                   ))}
                 </select>
               </div>
-
-
-
 
                 <div className="form-field">
                   <label>Salary</label>

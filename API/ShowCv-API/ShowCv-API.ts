@@ -20,6 +20,12 @@ app.get("/", (req, res) => {
   });
 });
 
+
+
+
+
+
+/*get SearchforPersonnel API */
 app.get("/users", async (req, res) => {
   try {
     const result = await pool.query('SELECT * FROM public."SearchforPersonnel"');
@@ -34,6 +40,32 @@ app.get("/users", async (req, res) => {
   }
 });
 
+/*post SearchforPersonnel API */
+app.post("/users/posthead", async (req, res) => {
+  const {  jobName,jobLocation,jobType,salary,jobSkill,userId} = req.body;
+
+  try {
+    const result = await pool.query(
+      'INSERT INTO public."SearchforPersonnel" (jobName,jobLocation,jobType,salary,jobSkill,userId) VALUES ($1, $2, $3, $4, $5,$6)',
+      [jobName,jobLocation,jobType,salary,jobSkill,userId]
+    );
+    res.json({
+      message: "เพิ่มข้อมูลสำเร็จ"
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "เพิ่มข้อมูลไม่สำเร็จ"
+    });
+  }
+});
+/* end API */
+
+
+
+
+
+
+/* Cv API */
 app.get("/ShowCv/User", async (req, res) => {
   try {
     const result = await pool.query('SELECT * FROM public."SearchforPersonnel"JOIN public."CV" ON "SearchforPersonnel"."Cvlink" = "CV"."Id";');
@@ -47,6 +79,7 @@ app.get("/ShowCv/User", async (req, res) => {
     });
   }
 });
+/* end API */
 
 
 
@@ -72,7 +105,7 @@ app.post("/Upload", async (req, res) => {
 });
 
 
-
+/*history API */
 app.get("/History/users", async (req, res) => {
   try {
     const userId = req.query.Id;
@@ -98,6 +131,14 @@ app.get("/History/users", async (req, res) => {
     });
   }
 });
+/* end history API */
+
+
+
+
+
+
+
 
 app.listen(8000, () => {
   console.log("Server running at http://localhost:8000");
