@@ -46,13 +46,15 @@ app.post("/users/posthead", async (req, res) => {
 
   try {
     const result = await pool.query(
-      'INSERT INTO public."SearchforPersonnel" (jobName,jobLocation,jobType,salary,jobSkill,userId) VALUES ($1, $2, $3, $4, $5,$6)',
+     'INSERT INTO public."SearchforPersonnel" ("jobName","jobLocation","jobType","salary","jobSkill","Usercreate") VALUES ($1, $2, $3, $4, $5, $6)',
       [jobName,jobLocation,jobType,salary,jobSkill,userId]
     );
     res.json({
       message: "เพิ่มข้อมูลสำเร็จ"
     });
   } catch (error) {
+    console.log("Error is",error)
+
     res.status(500).json({
       message: "เพิ่มข้อมูลไม่สำเร็จ"
     });
@@ -91,13 +93,15 @@ app.post("/Upload", async (req, res) => {
 
   try {
     const result = await pool.query(
-      'INSERT INTO public."CV" (FullName, Profes, Email, address, Phon, Bio) VALUES ($1, $2, $3, $4, $5, $6)',
+      'INSERT INTO public."CV" ("FullName", "Profes", "Email", "address", "Phon", "Bio") VALUES ($1, $2, $3, $4, $5, $6)',
       [FullName, Profes, Email, address, Phon, Bio]
     );
     res.json({
       message: "เพิ่มข้อมูลสำเร็จ"
     });
   } catch (error) {
+    console.log(error)
+
     res.status(500).json({
       message: "เพิ่มข้อมูลไม่สำเร็จ"
     });

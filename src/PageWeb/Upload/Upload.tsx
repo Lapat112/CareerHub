@@ -3,6 +3,14 @@ import './Upload.css'
 
 function Upload() {
 
+  // --- ข้อมูลของ Head ---
+  const [jobName, setJobName] = useState("");
+  const [jobLocation, setJobLocation] = useState("");
+  const [jobType, setJobType] = useState("");
+  const [salary, setSalary] = useState("");
+  const [jobSkill, setJobSkill] = useState("");
+
+
   // --- ข้อมูลโปรไฟล์ (CV) ---
   const [fullName, setFullName] = useState("");
   const [profes, setProfes] = useState("");
@@ -11,13 +19,6 @@ function Upload() {
   const [cv, setCv] = useState("");/* PNG */
   const [bio, setBio] = useState("");
 
-  // --- ข้อมูลของ Head ---
-  const [jobName, setJobName] = useState("");
-  const [company, setCompany] = useState("");
-  const [jobLocation, setJobLocation] = useState("");
-  const [jobType, setJobType] = useState("");
-  const [salary, setSalary] = useState("");
-  const [jobSkill, setJobSkill] = useState("");
 
 
   function UploadData() {
@@ -39,7 +40,6 @@ function Upload() {
       },
       body: JSON.stringify({
         jobName,
-        company,
         jobLocation,
         jobType,
         salary,
@@ -57,18 +57,18 @@ function Upload() {
 
 
   /* CV */
-    fetch("http://localhost:8000/API/Upload", {
+    fetch("http://localhost:8000/Upload", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        fullName,
-        profes,
-        email,
-        phone,
-        bio,
-      }),
+    body: JSON.stringify({
+    FullName: fullName,
+    Profes: profes,
+    Email: email,
+    Phon: phone,
+    Bio: bio,
+    })
     })
       .then((res) => res.json())
       .then((data) => {
@@ -130,7 +130,7 @@ function Upload() {
 
                 <div className="form-field">
                   <label>Salary</label>
-                  <input type="text" placeholder="$120k - $150k" value={salary} onChange={(e) => setSalary(e.target.value)}/>
+                  <input type="number" placeholder="$120k - $150k" value={salary} onChange={(e) => setSalary(e.target.value)}/>
                 </div>
                 <div className="form-field">
                   <label>Key Skill</label>
@@ -187,7 +187,7 @@ function Upload() {
               </div>
               <div className="form-field">
                 <label>Phone Number</label>
-                <input type="text" placeholder="+66 81 234 5678" value={phone} onChange={(e) => setPhone(e.target.value)}/>
+                <input type="number" placeholder="+66 81 234 5678" value={phone} onChange={(e) => setPhone(e.target.value)}/>
               </div>
             </div>
 
@@ -208,19 +208,6 @@ function Upload() {
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className="profile-footer">
-        <div className="profile-footer-inner">
-          <div className="flex items-center gap-2 text-sm font-bold text-gray-900">CrerrHub</div>
-          <div className="footer-links">
-            <a href="#">About</a>
-            <a href="#">Terms</a>
-            <a href="#">Privacy</a>
-            <a href="#">Help Center</a>
-          </div>
-          <div className="text-xs text-gray-400">© 2024 TalentVault Inc.</div>
-        </div>
-      </footer>
     </>
   )
 }
