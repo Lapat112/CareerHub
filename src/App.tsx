@@ -9,13 +9,28 @@ import ShowCv from './PageWeb/Sear_Person/ShowCv/ShowCv'
 
 
 function App() {
- 
 
+
+ 
   return (
     <>
       <Navbar/>
-      
-      <Outlet/>
+  
+
+
+    <Outlet/>
+    
+
+
+
+
+
+
+
+
+
+
+
     </>
   )
 }

@@ -59,7 +59,7 @@ function UploadHeader({ cvId }: UploadHeaderProps) {
             salary,
             jobSkill,
             userId,
-            cvId
+            Cvlink: cvId
           })
         }
       );
