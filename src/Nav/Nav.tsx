@@ -79,11 +79,11 @@ function Navbar() {
           <>
             <Link to="/Login" className="link-login">Log in</Link>
 
-            <Link to="/Register" className="btn btn-primary">Sign Up</Link>
+            <Link to="/Register" className="  rounded-[5px] w-20 h-8 flex items-center justify-center  ">Sign Up</Link>
           </>
         ) : (
           <div ref={userMenuRef} className="relative">
-            <button className="btn btn-primary cursor-pointer" onClick={() => setShowLogout(!showLogout)} >{userFirstName} </button>
+            <button className="  cursor-pointer text-[15px] text-white bg-[#0091f1e7] w-22 h-7 rounded-[6px] " onClick={() => setShowLogout(!showLogout)} >{userFirstName} </button>
 
             {showLogout && (
               <div className="absolute right-0 top-full mt-2 w-[120px] bg-white rounded-lg shadow-lg border border-gray-200 p-2 z-50">

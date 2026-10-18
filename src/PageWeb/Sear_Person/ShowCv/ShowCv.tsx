@@ -4,7 +4,7 @@ import "./ShowCv.css";
 
 function ShowCv() {
 
-const { id } = useParams();
+const { public_id } = useParams();
 const [showname, setShowname] = useState({});
 
 useEffect(() => {
@@ -12,12 +12,12 @@ useEffect(() => {
     .then((res) => res.json())
     .then((data) => {
       const user = data.find(
-        (item) => item.HeadId === Number(id)
+        (item) => item.HeadId === String(public_id)
       );
 
       setShowname(user);
     });
-}, [id]);
+}, [public_id]);
 
   return (
     <div className="info-container">

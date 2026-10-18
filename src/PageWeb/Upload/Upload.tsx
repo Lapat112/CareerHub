@@ -85,26 +85,18 @@ async function UploadData() {
         {/* ================= ส่วนที่ 1: HEAD ================= */}
           <section className="profile-section">
           <h2 className="section-title">Head Cv</h2>
-
           <div className="profile-card job-card">
-            <div className="job-card-logo">
-              <span className="logo-placeholder">🖼</span>
-              <button type="button" className="import-btn">
-                import รูป
-              </button>
-            </div>
-
             <div className="job-card-body">
               <div className="form-field">
                 <label>Job Title</label>
-                <input type="text" placeholder="e.g. Senior Product Designer" value={jobName} onChange={(e) => setJobName(e.target.value)}/>
+              <input type="text"  placeholder="e.g. Senior Product Designer" value={jobName} onChange={(e) => setJobName(e.target.value)}/><small></small>
               </div>
 
               <div className="form-row">
                 
                 <div className="form-field">
                   <label>Location</label>
-                  <input type="text" placeholder="e.g. Bangkok (Remote friendly)" value={jobLocation} onChange={(e) => setJobLocation(e.target.value)}/>
+                  <input type="text" placeholder="e.g. Bangkok (Remote friendly)" maxLength={40} value={jobLocation} onChange={(e) => setJobLocation(e.target.value)}/><small></small>
                 </div>
               </div>
 
@@ -184,7 +176,7 @@ async function UploadData() {
               </div>
               <div className="form-field">
                 <label>Phone Number</label>
-                <input type="text" placeholder="+66 81 234 5678" value={phone} onChange={(e) => setPhone(e.target.value)}/>
+                <input type="number" placeholder="+66 81 234 5678" value={phone} onChange={(e) => setPhone(e.target.value)}/>
               </div>
             </div>
 

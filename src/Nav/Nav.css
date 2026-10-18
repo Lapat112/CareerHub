@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 60px;
+  padding: 15px 60px;
   border-bottom: 1px solid #edeef2;
 }
 
@@ -16,9 +16,7 @@
   gap: 6px;
 }
 
-.logo-icon {
-  color: #2563eb;
-}
+
 
 .nav-links {
   display: flex;
@@ -34,8 +32,8 @@
 }
 
 .link-login {
-  font-size: 14px;
-  color: #4b5563;
+  font-size: 15px;
+  
 }
 
 @media (max-width: 900px) {

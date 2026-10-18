@@ -12,6 +12,7 @@ import Register from './PageWeb/Register/Register.tsx'
 import ShowCv from './PageWeb/Sear_Person/ShowCv/ShowCv.tsx'
 import History from './PageWeb/User/History/History.tsx'
 import UserProfile from './PageWeb/User/UserProfile.tsx'
+import Fixing from './PageWeb/User/History/fix/fixing.tsx'
 
 
 
@@ -22,8 +23,11 @@ const router = createBrowserRouter([
       {path:'Homepage',element:<Homepage/>},
       {path:'Personnel',element:<Personnel/>},
       {path:'Upload',element:<Upload/>},
-      {path:'Personnel/ShowCv/:id', element:<ShowCv/>},
+      {path:'Personnel/ShowCv/:public_id', element:<ShowCv/>},
       {path:'History', element:<History />},
+      {path:'fixing/:id',element:<Fixing/>},
+      
+      
    
      
       
