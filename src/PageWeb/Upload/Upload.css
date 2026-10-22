@@ -30,13 +30,9 @@
   color: #6b7280;
 }
 
-/* Section (Head / CV) */
+/* Section */
 .profile-section {
   margin-bottom: 40px;
-}
-
-.profile-section > .profile-card:last-child {
-  margin-bottom: 0;
 }
 
 .section-title {
@@ -72,68 +68,6 @@
   font-size: 16px;
   font-weight: 600;
   color: #111827;
-}
-
-/* Job card */
-.job-card {
-  display: flex;
-  align-items: stretch;
-  gap: 32px;
-}
-
-.job-card .job-card-logo {
-  flex: 0 0 420px;
-  width: 420px;
-  min-width: 420px;
-  height: auto;
-  min-height: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  border: 2px dashed #d1d5db;
-  border-radius: 12px;
-  background: #f3f4f6;
-}
-
-.logo-placeholder {
-  font-size: 56px;
-  color: #9ca3af;
-}
-
-.import-btn {
-  white-space: nowrap;
-  padding: 8px 18px;
-  border: none;
-  border-radius: 8px;
-  background: #2563eb;
-  color: #fff;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.import-btn:hover {
-  background: #1d4ed8;
-}
-
-.job-card-body {
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-.job-card-body .form-row {
-  margin-bottom: 0;
-}
-
-/* แถวที่มีช่องเดียว (Location) ให้เต็มความกว้าง */
-.job-card-body > .form-row:not(.form-row-3) {
-  grid-template-columns: 1fr;
 }
 
 /* Dropzone */
@@ -175,10 +109,6 @@
   margin-bottom: 16px;
 }
 
-.form-row-3 {
-  grid-template-columns: 1fr 1fr 1fr;
-}
-
 .form-field {
   min-width: 0;
 }
@@ -193,8 +123,7 @@
 }
 
 .form-field input,
-.form-field textarea,
-.form-field select {
+.form-field textarea {
   width: 100%;
   padding: 10px 16px;
   border-radius: 8px;
@@ -205,37 +134,12 @@
   background-color: #fff;
 }
 
-.form-field input,
-.form-field select {
+.form-field input {
   height: 40px;
 }
 
-/* Select: ซ่อนลูกศรเดิม แล้วใส่ลูกศรของเราเอง */
-.form-field select {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  cursor: pointer;
-  padding-right: 40px;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
-  background-repeat: no-repeat;
-  background-position: right 14px center;
-  background-size: 16px;
-}
-
-/* สีเทาตอนยังไม่ได้เลือก (placeholder option) */
-.form-field select:invalid,
-.form-field select:has(option[value=""]:checked) {
-  color: #9ca3af;
-}
-
-.form-field select option {
-  color: #111827;
-}
-
 .form-field input:focus,
-.form-field textarea:focus,
-.form-field select:focus {
+.form-field textarea:focus {
   outline: none;
   border-color: #2563eb;
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
@@ -259,61 +163,13 @@
   padding-bottom: 60px;
 }
 
-/* Footer */
-.profile-footer {
-  width: 100%;
-  border-top: 1px solid #e5e7eb;
-  padding: 24px 0;
-}
-
-.profile-footer-inner {
-  max-width: 120rem;
-  margin: 0 auto;
-  padding: 0 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.footer-links {
-  display: flex;
-  gap: 24px;
-  font-size: 12px;
-}
-
-.footer-links a {
-  color: #2563eb;
-  text-decoration: none;
-}
-
-/* Tablet: กล่องรูปย้ายขึ้นข้างบน */
-@media (max-width: 900px) {
-  .job-card {
-    flex-direction: column;
-  }
-
-  .job-card .job-card-logo {
-    flex: 0 0 auto;
-    width: 100%;
-    min-width: 0;
-    min-height: 220px;
-  }
-}
-
 /* Mobile */
 @media (max-width: 640px) {
   .profile-wrapper {
     padding: 0 16px;
   }
 
-  .form-row,
-  .form-row-3 {
+  .form-row {
     grid-template-columns: 1fr;
-  }
-
-  .profile-footer-inner {
-    padding: 0 16px;
-    flex-direction: column;
-    gap: 12px;
   }
 }

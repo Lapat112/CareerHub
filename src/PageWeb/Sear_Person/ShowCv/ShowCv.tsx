@@ -4,17 +4,20 @@ import "./ShowCv.css";
 
 function ShowCv() {
 
-  const { id } = useParams();
-  const [showname, setShowname] = useState({});
+const { public_id } = useParams();
+const [showname, setShowname] = useState({});
 
-  useEffect(() => {
-    fetch("http://localhost:8000/ShowCv/User")
-      .then((res) => res.json())
-      .then((data) => {
-        const user = data.find((item) => item.Id === Number(id));
-        setShowname(user);
-      });
-  }, [id]);
+useEffect(() => {
+  fetch("http://localhost:8000/ShowCv/User")
+    .then((res) => res.json())
+    .then((data) => {
+      const user = data.find(
+        (item) => item.HeadId === String(public_id)
+      );
+
+      setShowname(user);
+    });
+}, [public_id]);
 
   return (
     <div className="info-container">

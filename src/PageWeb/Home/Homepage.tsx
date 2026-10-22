@@ -15,7 +15,7 @@ function Homepage() {
            {/* 2 button */}           
             <div className="hero-buttons">
              <Link to={"/Upload"}><button className="btn btn-primary">Upload Your CV</button></Link>            
-             <Link to={"/Personnel"}> <button className="btn btn-outline">Find Personnel</button></Link>
+             <Link to={"/Personnel"}> <button className=" border-1 rounded-[8px] w-40 h-12 cursor-pointer hover:bg-gray-200">Find Personnel</button></Link>
             </div>
               <span className="proof-text">Trusted by 10,000+ job seekers</span>
           </div>

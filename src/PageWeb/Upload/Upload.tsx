@@ -18,34 +18,56 @@ function Upload() {
   const [jobType, setJobType] = useState("");
   const [salary, setSalary] = useState("");
   const [jobSkill, setJobSkill] = useState("");
+  
+async function UploadData() {
+  try {
+    const userId = localStorage.getItem("Idonttallyou");
 
- function UploadData() {
-    try {
-      fetch("http://localhost:8000/API/Upload", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          fullName,
-          profes,
-          email,
-          phone,
-          cv,
-          bio,
-        }),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-          alert("Profile submitted successfully!");
-        });
-    } catch (error) {
-      console.error(error);
+    if (!userId) {
+      alert("ไม่พบ User ID");
+      return;
     }
+
+    const response = await fetch("http://localhost:8000/Upload", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // CV
+        FullName: fullName,
+        Profes: profes,
+        Email: email,
+        Phon: phone,
+        Bio: bio,
+
+        // Head
+        jobName,
+        jobLocation,
+        jobType,
+        salary,
+        jobSkill,
+
+        // User
+        userId,
+      }),
+    });
+
+    const data = await response.json();
+
+    console.log("Upload:", data);
+
+    if (!response.ok) {
+      alert("เพิ่มข้อมูลไม่สำเร็จ");
+      return;
+    }
+
+    alert("Profile submitted successfully!");
+  } catch (error) {
+    console.error(error);
+    alert("เกิดข้อผิดพลาดในการเชื่อมต่อ Server");
   }
-
-
+}
 
 /* Arry for JobTypes */
   const JOB_TYPES = ["Full-time", "Freelance", "Employment Agreement"];
@@ -63,26 +85,18 @@ function Upload() {
         {/* ================= ส่วนที่ 1: HEAD ================= */}
           <section className="profile-section">
           <h2 className="section-title">Head Cv</h2>
-
           <div className="profile-card job-card">
-            <div className="job-card-logo">
-              <span className="logo-placeholder">🖼</span>
-              <button type="button" className="import-btn">
-                import รูป
-              </button>
-            </div>
-
             <div className="job-card-body">
               <div className="form-field">
                 <label>Job Title</label>
-                <input type="text" placeholder="e.g. Senior Product Designer" value={jobName} onChange={(e) => setJobName(e.target.value)}/>
+              <input type="text"  placeholder="e.g. Senior Product Designer" value={jobName} onChange={(e) => setJobName(e.target.value)}/><small></small>
               </div>
 
               <div className="form-row">
                 
                 <div className="form-field">
                   <label>Location</label>
-                  <input type="text" placeholder="e.g. Bangkok (Remote friendly)" value={jobLocation} onChange={(e) => setJobLocation(e.target.value)}/>
+                  <input type="text" placeholder="e.g. Bangkok (Remote friendly)" maxLength={40} value={jobLocation} onChange={(e) => setJobLocation(e.target.value)}/><small></small>
                 </div>
               </div>
 
@@ -162,7 +176,7 @@ function Upload() {
               </div>
               <div className="form-field">
                 <label>Phone Number</label>
-                <input type="text" placeholder="+66 81 234 5678" value={phone} onChange={(e) => setPhone(e.target.value)}/>
+                <input type="number" placeholder="+66 81 234 5678" value={phone} onChange={(e) => setPhone(e.target.value)}/>
               </div>
             </div>
 
@@ -183,19 +197,7 @@ function Upload() {
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className="profile-footer">
-        <div className="profile-footer-inner">
-          <div className="flex items-center gap-2 text-sm font-bold text-gray-900">CrerrHub</div>
-          <div className="footer-links">
-            <a href="#">About</a>
-            <a href="#">Terms</a>
-            <a href="#">Privacy</a>
-            <a href="#">Help Center</a>
-          </div>
-          <div className="text-xs text-gray-400">© 2024 TalentVault Inc.</div>
-        </div>
-      </footer>
+
     </>
   )
 }
