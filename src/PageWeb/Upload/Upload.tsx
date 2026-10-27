@@ -28,7 +28,7 @@ async function UploadData() {
       return;
     }
 
-    const response = await fetch("http://localhost:8000/Upload", {
+    const response = await fetch("http://localhost/Upload", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

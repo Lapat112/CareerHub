@@ -65,42 +65,6 @@ app.get("/ShowCv/User", async (req, res) => {
 
 
 
-/* Post CV API */
-app.post("/Upload", async (req, res) => {
-
-  const { FullName, Profes, Email, address, Phon, Bio, jobName, jobLocation, jobType, salary, jobSkill, userId } = req.body;
-
-  try {
-    // 1. สร้าง CV ก่อน
-    const cvResult = await pool.query(
-      'INSERT INTO public."CV" ("FullName", "Profes", "Email", "address", "Phon", "Bio") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "Id"',
-      [FullName, Profes, Email, address, Phon, Bio]
-    );
-
-    // 2. เอา Id ของ CV ที่เพิ่งสร้าง
-    const newId = cvResult.rows[0].Id;
-
-    console.log("CV new Id :", newId);
-
-    // 3. เอา Id ไปใส่ Cvlink ตอนสร้าง Head
-    await pool.query(
-      'INSERT INTO public."SearchforPersonnel" ("jobName","jobLocation","jobType","salary","jobSkill","Usercreate","Cvlink") VALUES ($1, $2, $3, $4, $5, $6, $7)',
-      [ jobName, jobLocation, jobType, salary, jobSkill, userId, newId]);
-
-    // 4. ส่งผลกลับ Frontend
-    res.json({
-      message: "เพิ่มข้อมูลสำเร็จ",
-      CvId: newId
-    });
-
-  } catch (error) {
-    console.log("ERROR :", error);
-
-    res.status(500).json({
-      message: "เพิ่มข้อมูลไม่สำเร็จ"
-    });
-  }
-});
 
 
 
