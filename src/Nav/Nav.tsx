@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import {Chacktoken} from '../PageWeb/Login/axiosss'
 
 import "./Nav.css";
 
@@ -8,7 +9,7 @@ function Navbar() {
 
   const [showLogout, setShowLogout] = useState(false);
   const [userFirstName, setUserFirstName] = useState<string | null>(
-    localStorage.getItem("firstName")
+    sessionStorage.getItem("firstName")
   );
 
   const userMenuRef = useRef<HTMLDivElement>(null);
@@ -34,15 +35,13 @@ function Navbar() {
   // อัปเดตชื่อเมื่อ login/logout
   useEffect(() => {
     const syncUser = () => {
-      setUserFirstName(localStorage.getItem("firstName"));
+      setUserFirstName(sessionStorage.getItem("firstName"));
     };
 
     window.addEventListener("auth-change", syncUser);
-    window.addEventListener("storage", syncUser);
 
     return () => {
       window.removeEventListener("auth-change", syncUser);
-      window.removeEventListener("storage", syncUser);
     };
   }, []);
 
@@ -52,14 +51,34 @@ function Navbar() {
     navigate("/Profile");
   };
 
+ 
   // Logout
-  const handleLogout = () => {
-    localStorage.clear();
-    window.dispatchEvent(new Event("auth-change"));
-    setShowLogout(false);
-    navigate("/Homepage");
+  const handleLogout = async () => {
+    try {
+      const response = await fetch("http://localhost:7000/logout", {
+        method: "POST",
+        credentials: "include"
+      });
+
+      if (!response.ok) {
+        throw new Error("Logout failed");
+      }
+
+      sessionStorage.clear();
+
+      window.dispatchEvent(new Event("auth-change"));
+      setShowLogout(false);
+      navigate("/Homepage");
+
+    } catch (err) {
+      console.error("Logout error:", err);
+    }
   };
 
+  const tokenme = () => {
+  Chacktoken('/profile');
+  console.log("Tokenme")
+};
   return (
     <header className="navbar">
       <div className="logo">CreerHub</div>
@@ -69,26 +88,51 @@ function Navbar() {
           <button className="cursor-pointer">Home</button>
         </Link>
 
-        <Link to="/Personnel"><button className="cursor-pointer"> Search for Personnel</button> </Link>
+        <Link to="/Personnel">
+          <button className="cursor-pointer" onClick={tokenme}>Search for Personnel</button>
+        </Link>
 
-        <Link to="/Upload"><button className="cursor-pointer">Upload</button> </Link>
+        <Link to="/Upload">
+          <button className="cursor-pointer">Upload</button>
+        </Link>
       </nav>
 
       <div className="nav-actions">
         {!userFirstName ? (
           <>
-            <Link to="/Login" className="link-login">Log in</Link>
+            <Link to="/Login" className="link-login">
+              Log in
+            </Link>
 
-            <Link to="/Register" className="  rounded-[5px] w-20 h-8 flex items-center justify-center  ">Sign Up</Link>
+            <Link
+              to="/Register"
+              className="rounded-[5px] w-20 h-8 flex items-center justify-center"
+            >
+              Sign Up
+            </Link>
           </>
         ) : (
           <div ref={userMenuRef} className="relative">
-            <button className="  cursor-pointer text-[15px] text-white bg-[#0091f1e7] w-22 h-7 rounded-[6px] " onClick={() => setShowLogout(!showLogout)} >{userFirstName} </button>
+            <button
+              className="cursor-pointer text-[15px] text-white bg-[#0091f1e7] w-22 h-7 rounded-[6px]"
+              onClick={() => setShowLogout(!showLogout)}
+            >
+              {userFirstName}
+            </button>
 
             {showLogout && (
               <div className="absolute right-0 top-full mt-2 w-[120px] bg-white rounded-lg shadow-lg border border-gray-200 p-2 z-50">
-               <Link to = {"/History"}> <button className="w-full text-left px-3 py-2 rounded-md hover:bg-gray-100 cursor-pointer" > History</button> </Link>
-                <button className="w-full text-left px-3 py-2 rounded-md hover:bg-gray-100 cursor-pointer" onClick={handleLogout}> Logou</button>
+                <Link to="/History">
+                  <button className="w-full text-left px-3 py-2 rounded-md hover:bg-gray-100 cursor-pointer">
+                    History
+                  </button>
+                </Link>
+                <button
+                  className="w-full text-left px-3 py-2 rounded-md hover:bg-gray-100 cursor-pointer"
+                  onClick={handleLogout}
+                >
+                  Logout
+                </button>
               </div>
             )}
           </div>

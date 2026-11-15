@@ -9,14 +9,8 @@ function History() {
 
   useEffect(() => {
 
-    const userId = localStorage.getItem("Idonttallyou");
+    const userId = sessionStorage.getItem("Idonttallyou");
 
-    if (userId) {
-      console.log("i get id", userId)
-    } else {
-      console.log("don't get id");
-      return;
-    }
 
     fetch(`http://localhost:8000/History/users?Id=${userId}`)
       .then((res) => res.json())
@@ -77,7 +71,7 @@ function History() {
 
 
                 <div className="job-card-body">
-                  <Link to={`/Personnel/ShowCv/${item.Id}`}><h3>{item?.jobName}</h3></Link>
+                  <Link to={`/Personnel/ShowCv/${item.public_id}`}><h3>{item?.jobName}</h3></Link>
 
                   <p className="job-meta">Compass Corp &nbsp;•&nbsp; Bangkok (Remote friendly)</p>
 

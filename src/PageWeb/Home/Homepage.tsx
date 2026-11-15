@@ -3,9 +3,16 @@ import { Link } from 'react-router-dom'
 
 import './Homepage.css'
 
+
+
+
+
 function Homepage() {
   return (
     <>
+
+
+      
       {/* Hero Main 1 */}
       <div className="hero-wrapper">
         <section className="hero">

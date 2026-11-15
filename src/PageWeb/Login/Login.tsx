@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
+
+
 import './Login.css'
 
 function Login() {
@@ -8,41 +10,46 @@ function Login() {
   const [password, setPassword] = useState("");
   const homepage = useNavigate();
 
-  async function addlogin() {
+async function addlogin() {
     if (!email || !password) {
-      alert("กรอกข้อมูลให้ครบ");
-      return;
+        alert("กรอกข้อมูลให้ครบ");
+        return;
     }
 
     try {
-      const response = await fetch("http://localhost:7000/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: email,
-          password: password,
-        }),
-      });
-      const data = await response.json();
+        const response = await fetch("http://localhost:7000/login", {
+            method: "POST",
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                email: email,
+                password: password,
+            }),
+        });
 
-      if (data.message === "Login Success") {
-        // บันทึกชื่อผู้ใช้ไว้ให้ Navbar นำไปแสดง
-        localStorage.setItem("firstName", data.firstName);
-        localStorage.setItem("Idonttallyou",data.Idonttallyou)
-        // แจ้ง Navbar ให้อัปเดตทันที
-        window.dispatchEvent(new Event("auth-change"));
-        homepage("/Homepage");
-      } else {
-        alert("Login ไม่ผ่าน");
-      }
+        const data = await response.json();
+
+        if (data.message === "Login Success") {
+            sessionStorage.setItem("firstName", data.firstName);
+            sessionStorage.setItem("Idonttallyou", data.Idonttallyou);
+
+            window.dispatchEvent(new Event("auth-change"));
+
+            homepage("/Homepage");
+
+        } else {
+            alert("Login ไม่ผ่าน");
+        }
+
     } catch (error) {
-      console.error(error);
-      alert("เชื่อมต่อเซิร์ฟเวอร์ไม่ได้");
+        console.error(error);
+        alert("เชื่อมต่อเซิร์ฟเวอร์ไม่ได้");
     }
-  }
-
+}
+  
+  
   return (
     <div className="login-page">
       <div className="login-wrapper">
@@ -75,6 +82,8 @@ function Login() {
                 value={password}
               />
             </div>
+
+            
           </div>
 
           <label className="remember-me">
@@ -83,6 +92,10 @@ function Login() {
 
           <button className="btn-login" onClick={addlogin}>Log In</button>
         </div>
+
+      
+
+
 
       </div>
     </div>
