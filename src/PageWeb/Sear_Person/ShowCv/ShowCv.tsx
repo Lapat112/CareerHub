@@ -8,7 +8,7 @@ const { public_id } = useParams();
 const [showname, setShowname] = useState({});
 
 useEffect(() => {
-  fetch("http://localhost:8000/ShowCv/User")
+  fetch("http://localhost:80/ShowCv/User")
     .then((res) => res.json())
     .then((data) => {
       const user = data.find(

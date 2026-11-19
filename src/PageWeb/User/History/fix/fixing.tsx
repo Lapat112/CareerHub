@@ -12,7 +12,7 @@ const navigate = useNavigate();
 const [showname, setShowname] = useState({});
 
   useEffect(() => {
-    fetch("http://localhost:8000/fixCv/User")
+    fetch("http://localhost:80/fixCv/User")
       .then((res) => res.json())
       .then((data) => {
         const user = data.find(
@@ -31,14 +31,14 @@ const [showname, setShowname] = useState({});
   function updateProfile(e) {
     e.preventDefault();
 
-    fetch(`http://localhost:8000/fix/putrun/${id}`, {
+    fetch(`http://localhost:80/Creerhub/fix/cv/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
         jobName: showname.jobName,
-        jobLocation: showname.jobLocation,
+        // [แก้] ลบ jobLocation ออก ใช้ address ตัวเดียวตาม Upload
         jobType: showname.jobType,
         salary: showname.salary,
         jobSkill: showname.jobSkill,
@@ -78,7 +78,8 @@ const [showname, setShowname] = useState({});
 
             <div className="field half">
               <label>Location</label>
-              <input name="jobLocation" placeholder="e.g. Bangkok (Remote friendly)" value={showname?.jobLocation || ""} onChange={handleChange} />
+              {/* [แก้] name/value จาก jobLocation เป็น address ให้ตรงกับ Upload */}
+              <input name="address" placeholder="e.g. Bangkok (Remote friendly)" value={showname?.address || ""} onChange={handleChange} />
             </div>
 
             <div className="row">

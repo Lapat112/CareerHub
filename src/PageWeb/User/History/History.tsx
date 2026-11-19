@@ -12,7 +12,7 @@ function History() {
     const userId = sessionStorage.getItem("Idonttallyou");
 
 
-    fetch(`http://localhost:8000/History/users?Id=${userId}`)
+    fetch(`http://localhost/Creerhub/User/ShowHistory?Id=${userId}`)
       .then((res) => res.json())
       .then((data) => {
         setItems(data);
@@ -32,7 +32,7 @@ function History() {
     if (!confirmDelete) return;
 
     try {
-      const res = await fetch(`http://localhost:8000/History/${item_id}`,
+      const res = await fetch(`http://localhost:80/Creerhub/User/DeleteHistory/${item_id}`,
         {
           method: "DELETE"
         }

@@ -9,7 +9,7 @@ function Personnel() {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:8000/users')
+    fetch('http://localhost:80/Showdatausers')
     .then((res) => res.json())
     .then((data) => {
       setItems(data);
